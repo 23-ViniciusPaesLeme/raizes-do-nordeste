@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perfil - Raízes do Nordeste</title>
+
+    <link rel="icon" href="./assets/logo.png" type="image/png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <a href="./index.html" class="navbar-brand d-flex align-items-center gap-2">
+                <span class="logo-circle">RN</span>
+                <span class="text-light fw-bold">Raízes do Nordeste</span>
+            </a>
+
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-label="Abrir menu de navegação">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 text-center">
+                    <li class="nav-item"><a href="./index.html" class="nav-link">Início</a></li>
+                    <li class="nav-item"><a href="./cardapio.html" class="nav-link">Cardápio</a></li>
+                    <li class="nav-item auth-only d-none"><a href="./meus-pedidos.html" class="nav-link">Meus
+                            Pedidos</a></li>
+                    <li class="nav-item auth-only d-none"><a href="./fidelidade.html" class="nav-link">Fidelidade</a>
+                    </li>
+                    <li class="nav-item auth-only d-none"><a href="./perfil.html" class="nav-link active">Perfil</a>
+                    </li>
+
+                    <li class="nav-item" id="login-btn">
+                        <a href="./login.html" class="nav-link">Login</a>
+                    </li>
+
+                    <li class="nav-item d-none" id="logout-btn">
+                        <a href="#" class="nav-link">Sair</a>
+                    </li>
+
+                    <li class="nav-item position-relative">
+                        <a href="./carrinho.html" class="nav-link">
+                            <i class="fas fa-shopping-cart fa-lg"></i>
+                            <span id="cart-count"
+                                class="badge bg-warning text-dark top-0 start-100 translate-middle rounded-pill">
+                                0
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <main class="container py-5">
+
+        <div class="text-center mb-5">
+            <span class="badge bg-success mb-3">Área do cliente</span>
+            <h1 class="fw-bold titulo-cardapio">Meu Perfil</h1>
+            <p class="text-muted">Gerencie seus dados e preferências de privacidade.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-12 col-lg-4">
+                <div class="card perfil-card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="perfil-avatar mx-auto mb-3">
+                            <i class="fas fa-user"></i>
+                        </div>
+
+                        <h4 class="fw-bold mb-1" id="perfilNome">Cliente</h4>
+                        <p class="text-muted mb-3" id="perfilEmail">email@email.com</p>
+
+                        <span class="badge bg-success">Conta ativa</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-8">
+                <div class="card perfil-card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4">Dados da conta</h5>
+
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label class="form-label fw-semibold">Nome</label>
+                                <input type="text" id="perfilInputNome" class="form-control" readonly>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label fw-semibold">E-mail</label>
+                                <input type="email" id="perfilInputEmail" class="form-control" readonly>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label fw-semibold">Região selecionada</label>
+                                <input type="text" id="perfilRegiao" class="form-control" readonly>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label fw-semibold">Status</label>
+                                <input type="text" class="form-control" value="Cliente cadastrado" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card perfil-card border-0 shadow-sm mt-4">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-3">
+                            <i class="fas fa-shield-alt text-success me-2"></i>
+                            Privacidade e LGPD
+                        </h5>
+
+                        <p class="text-muted mb-3">
+                            Seus dados são utilizados apenas para autenticação, pedidos, acompanhamento e participação
+                            no programa de fidelidade.
+                        </p>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="lgpdPerfil" checked disabled>
+                            <label class="form-check-label" for="lgpdPerfil">
+                                Consentimento para uso dos dados no sistema.
+                            </label>
+                        </div>
+
+                        <small class="text-muted">
+                            Este projeto simula boas práticas de transparência e consentimento conforme a LGPD.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer mt-5">
+        <div class="container text-center py-4">
+
+            <p class="mb-2 small">
+                <i class="fas fa-code"></i> Projeto Front-End |
+                <i class="fas fa-graduation-cap"></i> Uninter
+            </p>
+
+            <h6 class="fw-bold mb-2">Raízes do Nordeste</h6>
+
+            <p class="mb-1 small">
+                Sistema desenvolvido como Trabalho Final de Desenvolvimento Front-End.
+            </p>
+
+            <p class="mb-1 small">
+                Desenvolvido por <strong>Vinícius Gall Paes Leme</strong>
+            </p>
+
+            <p class="mb-0 small text-muted">
+                © 2026 • Projeto acadêmico sem fins comerciais
+            </p>
+
+        </div>
+    </footer>
+
+
+    <div id="lgpdBanner" class="lgpd-banner d-none">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+            <p class="mb-0 small">
+                Utilizamos seus dados para melhorar sua experiência, gerenciar pedidos e operar o programa de
+                fidelidade.
+                Ao continuar, você concorda com nossa
+                <a href="./lgpd.html">Política de Privacidade</a>.
+            </p>
+
+            <button onclick="aceitarLGPD()" class="btn btn-success btn-sm px-4 fw-bold">
+                Aceitar
+            </button>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

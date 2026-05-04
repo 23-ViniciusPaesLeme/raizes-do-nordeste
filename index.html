@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Raízes do Nordeste</title>
+
+  <link rel="icon" href="./assets/logo.png" type="image/png">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+
+      <a href="./index.html" class="navbar-brand d-flex align-items-center gap-2">
+        <span class="logo-circle">RN</span>
+        <span class="text-light fw-bold">Raízes do Nordeste</span>
+      </a>
+
+      <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-label="Abrir menu de navegação">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 text-center">
+
+          <li class="nav-item">
+            <a href="./index.html" class="nav-link active">Início</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="./cardapio.html" class="nav-link">Cardápio</a>
+          </li>
+
+          <li class="nav-item auth-only d-none">
+            <a href="./meus-pedidos.html" class="nav-link">Meus Pedidos</a>
+          </li>
+
+          <li class="nav-item auth-only d-none">
+            <a href="./fidelidade.html" class="nav-link">Fidelidade</a>
+          </li>
+
+          <li class="nav-item auth-only d-none">
+            <a href="./perfil.html" class="nav-link">Perfil</a>
+          </li>
+
+          <li class="nav-item" id="login-btn">
+            <a href="./login.html" class="nav-link">Login</a>
+          </li>
+
+          <li class="nav-item d-none" id="logout-btn">
+            <a href="#" class="nav-link">Sair</a>
+          </li>
+
+          <li class="nav-item position-relative">
+            <a href="./carrinho.html" class="nav-link">
+              <i class="fas fa-shopping-cart fa-lg"></i>
+              <span id="cart-count" class="badge bg-warning text-dark top-0 start-100 translate-middle rounded-pill">
+                0
+              </span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero text-center">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-12 col-lg-8">
+
+            <img src="./assets/logo.png" class="logo-hero mb-4" alt="Logotipo Raízes do Nordeste">
+
+            <h1 class="display-5 fw-bold hero-title">
+              Do Nordeste direto pra sua mesa.
+            </h1>
+
+            <p class="lead destaque-texto mb-4">
+              Escolha sua região, veja os produtos disponíveis e faça seu pedido com praticidade.
+            </p>
+
+            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+              <a href="./cardapio.html" class="btn btn-success btn-lg px-5 py-3 fw-bold">
+                Ver Cardápio
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <section class="container py-5">
+    <div class="card border-0 shadow-lg p-4 promo-card">
+
+      <div class="row align-items-center g-4">
+
+        <div class="col-md-8">
+
+          <span class="badge bg-danger text-white mb-2">
+             Oferta limitada
+          </span>
+
+          <h2 class="fw-bold display-6 mb-2">
+            Combo Nordestino da Semana
+          </h2>
+
+          <p class="mb-2 fs-5">
+            Ganhe <strong class="text-success">R$ 10 OFF</strong> em pedidos acima de
+            <strong>R$ 60</strong>
+          </p>
+
+          <p class="text-muted mb-3">
+            Incluindo pelo menos um prato típico nordestino 🍛
+          </p>
+
+          <div class="d-flex gap-3 align-items-center flex-wrap">
+            <a href="./cardapio.html" class="btn btn-success btn-lg fw-bold">
+              Aproveitar agora
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4 text-center">
+          <img src="./assets/baiao.jpg" alt="Promoção nordestina" class="img-fluid rounded shadow-sm promo-img">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer mt-5">
+    <div class="container text-center py-4">
+
+      <p class="mb-2 small">
+        <i class="fas fa-code"></i> Projeto Front-End |
+        <i class="fas fa-graduation-cap"></i> Uninter
+      </p>
+
+      <h6 class="fw-bold mb-2">Raízes do Nordeste</h6>
+
+      <p class="mb-1 small">
+        Sistema desenvolvido como Trabalho Final de Desenvolvimento Front-End.
+      </p>
+
+      <p class="mb-1 small">
+        Desenvolvido por <strong>Vinícius Gall Paes Leme</strong>
+      </p>
+
+      <p class="mb-0 small text-muted">
+        © 2026 • Projeto acadêmico sem fins comerciais
+      </p>
+
+    </div>
+  </footer>
+
+  <div id="lgpdBanner" class="lgpd-banner d-none">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+
+      <p>
+        Utilizamos seus dados para melhorar sua experiência, gerenciar pedidos e operar o programa de fidelidade.
+        Ao continuar, você concorda com nossa
+        <a href="./lgpd.html">Política de Privacidade</a>.
+      </p>
+
+      <button type="button" onclick="aceitarLGPD()" class="btn btn-success btn-sm px-4 fw-bold">
+        Aceitar
+      </button>
+
+    </div>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>

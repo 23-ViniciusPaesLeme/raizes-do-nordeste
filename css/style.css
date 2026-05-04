@@ -1,0 +1,454 @@
+:root {
+  --cor-primaria: #198754;
+  --cor-marrom: #7a431f;
+  --cor-fundo: #f4ead2;
+  --navbar-height: 72px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--cor-fundo);
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: var(--cor-marrom);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 0;
+}
+
+.navbar .nav-link {
+  color: #f4e3c1;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #ffc107;
+}
+
+.navbar .nav-link.active {
+  color: #ffffff;
+  position: relative;
+}
+
+.navbar .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: #ffc107;
+  border-radius: 2px;
+}
+
+/* MENU HAMBURGER */
+.custom-toggler {
+  border: none;
+  width: 42px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+}
+
+.custom-toggler:focus {
+  box-shadow: none;
+}
+
+.custom-toggler span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.custom-toggler.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.custom-toggler.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.custom-toggler.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.logo-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* HERO */
+.hero {
+  min-height: calc(100vh - var(--navbar-height));
+  min-height: calc(100dvh - var(--navbar-height));
+  margin: 0;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.48)),
+    url("../assets/bg-hero.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: #fff;
+}
+
+.logo-hero {
+  width: min(80vw, 420px);
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title,
+.hero h1 {
+  color: #fff;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
+}
+
+.destaque-texto {
+  color: #f4e3c1;
+}
+
+/* CARD DE PROMOÇÃO */
+.promo-card {
+  background: linear-gradient(135deg, #fff8f0, #fff);
+  border-radius: 16px;
+  transition: transform 0.2s ease;
+}
+
+.promo-card:hover {
+  transform: scale(1.01);
+}
+
+.promo-img {
+  max-height: 140px;
+  object-fit: cover;
+}
+
+/* CARDÁPIO */
+.titulo-cardapio {
+  color: var(--cor-marrom);
+}
+
+.filtros-card {
+  border-radius: 1rem;
+  background-color: #fffaf0;
+}
+
+.categorias-scroll {
+  padding-bottom: 0.35rem;
+}
+
+.categoria {
+  white-space: nowrap;
+  border-radius: 999px;
+}
+
+.card-produto {
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.img-produto {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.preco-produto {
+  color: var(--cor-primaria);
+  font-size: 1.05rem;
+}
+
+/* CARRINHO */
+.item-carrinho,
+.resumo-carrinho {
+  border-radius: 1rem;
+}
+
+.img-carrinho {
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* PEDIDOS */
+.pedido-card {
+  border-radius: 1rem;
+}
+
+.pedido-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.status-step {
+  flex: 1;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.status-step i {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #e9ecef;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+}
+
+.status-step.active {
+  color: var(--cor-primaria);
+  font-weight: 600;
+}
+
+.status-step.active i {
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+/* FIDELIDADE */
+.fidelidade-card,
+.recompensa-card {
+  border-radius: 1rem;
+  background-color: #fffaf0;
+}
+
+.fidelidade-icone {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--cor-primaria);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.beneficio-box {
+  background: var(--cor-fundo);
+  border-radius: 1rem;
+  padding: 1rem;
+  height: 100%;
+}
+
+/* PERFIL */
+.perfil-card {
+  border-radius: 1rem;
+  background-color: #fffaf0;
+}
+
+.perfil-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--cor-primaria);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+/* LOGIN / CADASTRO */
+.auth-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(33, 37, 41, 0.82), rgba(33, 37, 41, 0.82)),
+    url("../assets/bg-hero.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.auth-header {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-back,
+.auth-brand {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.auth-back:hover,
+.auth-brand:hover {
+  color: #ffc107;
+}
+
+.auth-main {
+  min-height: calc(100vh - 82px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 430px;
+  background-color: #fffaf0;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.25);
+}
+
+.auth-logo {
+  width: 105px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.auth-title {
+  color: var(--cor-marrom);
+  font-weight: 800;
+  font-size: 1.8rem;
+}
+
+.auth-subtitle,
+.auth-footer-text {
+  color: #6c757d;
+}
+
+.auth-link {
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+.auth-card .form-label {
+  font-weight: 600;
+  color: #4b2a17;
+}
+
+.auth-card .form-control {
+  border-radius: 0.75rem;
+}
+
+/* LGPD */
+.lgpd-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background: rgba(33, 37, 41, 0.95);
+  backdrop-filter: blur(6px);
+
+  color: #fff;
+  padding: 1rem;
+  z-index: 9999;
+
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.25);
+}
+
+.lgpd-banner p {
+  margin: 0;
+  font-size: 0.9rem;
+  max-width: 700px;
+}
+
+.lgpd-banner button {
+  white-space: nowrap;
+}
+
+.lgpd-banner a {
+  color: #ffc107;
+  text-decoration: underline;
+}
+
+/* RESPONSIVO */
+@media (min-width: 768px) {
+  .img-produto {
+    height: 210px;
+  }
+
+  .img-carrinho {
+    width: 95px;
+    height: 95px;
+  }
+}
+
+@media (max-width: 576px) {
+  .auth-header {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .auth-brand span:last-child {
+    display: none;
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+  }
+
+  .logo-hero {
+    width: min(85vw, 320px);
+  }
+}
+
+@media (min-width: 992px) {
+  .card-produto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.12);
+  }
+
+  .resumo-carrinho {
+    position: sticky;
+    top: 1.5rem;
+  }
+}
