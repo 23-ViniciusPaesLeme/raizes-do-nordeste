@@ -2,6 +2,13 @@
 let usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado")) || null;
 let categoriaAtual = "todos";
 
+const cardapiosPorUnidade = {
+  "recife": [1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 14, 19, 20, 21, 22, 23, 27, 32, 33, 34, 35, 36],
+  "sao-paulo": [1, 3, 4, 6, 7, 12, 13, 14, 15, 16, 19, 20, 21, 22, 24, 25, 27, 28, 32, 33, 34, 35, 36, 37],
+  "goiania": [1, 2, 5, 7, 12, 13, 14, 15, 17, 18, 19, 20, 21, 29, 30, 33, 34, 35, 37],
+  "curitiba": [1, 4, 8, 9, 13, 14, 15, 18, 19, 20, 21, 31, 32, 33, 34, 36]
+};
+
 function formatarMoeda(valor) {
   return valor.toLocaleString("pt-BR", {
     style: "currency",
@@ -9,15 +16,15 @@ function formatarMoeda(valor) {
   });
 }
 
-function formatarRegiao(regiao) {
-  const regioes = {
-    "nordeste": "Nordeste",
-    "sudeste": "Sudeste",
-    "centro-oeste": "Centro-Oeste",
-    "sul": "Sul"
+function formatarUnidade(unidade) {
+  const unidades = {
+    "recife": "Unidade Recife - PE",
+    "sao-paulo": "Unidade São Paulo - SP",
+    "goiania": "Unidade Goiânia - GO",
+    "curitiba": "Unidade Curitiba - PR"
   };
 
-  return regioes[regiao] || "Nenhuma região selecionada";
+  return unidades[unidade] || "Nenhuma unidade selecionada";
 }
 
 function produtoDisponivelPorPeriodo(produto) {
@@ -61,9 +68,7 @@ function aceitarLGPD() {
   localStorage.setItem("lgpdAceito", "true");
 
   const banner = document.getElementById("lgpdBanner");
-  if (banner) {
-    banner.classList.add("d-none");
-  }
+  if (banner) banner.classList.add("d-none");
 }
 
 function verificarLGPD() {
@@ -71,12 +76,7 @@ function verificarLGPD() {
   if (!banner) return;
 
   const aceito = localStorage.getItem("lgpdAceito");
-
-  if (aceito === "true") {
-    banner.classList.add("d-none");
-  } else {
-    banner.classList.remove("d-none");
-  }
+  banner.classList.toggle("d-none", aceito === "true");
 }
 
 // AJUSTE DE ALTURA
@@ -235,10 +235,10 @@ function configurarCarrinho() {
 }
 
 function adicionarAoCarrinho(idProduto) {
-  const regiaoSelecionada = localStorage.getItem("regiaoSelecionada");
+  const unidadeSelecionada = localStorage.getItem("unidadeSelecionada");
 
-  if (!regiaoSelecionada) {
-    alert("Selecione sua região antes de adicionar produtos.");
+  if (!unidadeSelecionada) {
+    alert("Selecione uma unidade antes de adicionar produtos.");
     return;
   }
 
@@ -270,12 +270,12 @@ function renderizarProdutos() {
 
   if (!lista || typeof produtos === "undefined") return;
 
-  const regiao = select?.value || "";
+  const unidade = select?.value || "";
   const textoBusca = busca?.value.toLowerCase().trim() || "";
 
   lista.innerHTML = "";
 
-  if (!regiao) {
+  if (!unidade) {
     aviso?.classList.remove("d-none");
     busca?.setAttribute("disabled", "true");
 
@@ -283,7 +283,7 @@ function renderizarProdutos() {
       btn.setAttribute("disabled", "true");
     });
 
-    localStorage.removeItem("regiaoSelecionada");
+    localStorage.removeItem("unidadeSelecionada");
     return;
   }
 
@@ -294,17 +294,19 @@ function renderizarProdutos() {
     btn.removeAttribute("disabled");
   });
 
-  localStorage.setItem("regiaoSelecionada", regiao);
+  localStorage.setItem("unidadeSelecionada", unidade);
+
+  const produtosDaUnidade = cardapiosPorUnidade[unidade] || [];
 
   const filtrados = produtos.filter(p => {
-    const porRegiao = p.regiao === regiao || p.regiao === "todas";
+    const porUnidade = produtosDaUnidade.includes(p.id);
     const porCategoria = categoriaAtual === "todos" || p.categoria === categoriaAtual;
     const porBusca =
       p.nome.toLowerCase().includes(textoBusca) ||
       p.descricao.toLowerCase().includes(textoBusca);
     const porPeriodo = produtoDisponivelPorPeriodo(p);
 
-    return porRegiao && porCategoria && porBusca && porPeriodo;
+    return porUnidade && porCategoria && porBusca && porPeriodo;
   });
 
   if (filtrados.length === 0) {
@@ -613,14 +615,14 @@ function renderizarPerfil() {
     return;
   }
 
-  const regiao = localStorage.getItem("regiaoSelecionada");
+  const unidade = localStorage.getItem("unidadeSelecionada");
 
   nomeTitulo.textContent = usuarioLogado.nome || "Cliente";
   emailTitulo.textContent = usuarioLogado.email || "email@email.com";
 
   if (inputNome) inputNome.value = usuarioLogado.nome || "";
   if (inputEmail) inputEmail.value = usuarioLogado.email || "";
-  if (inputRegiao) inputRegiao.value = formatarRegiao(regiao);
+  if (inputRegiao) inputRegiao.value = formatarUnidade(unidade);
 }
 
 // FIDELIDADE
