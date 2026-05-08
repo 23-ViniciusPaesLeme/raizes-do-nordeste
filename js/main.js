@@ -242,12 +242,6 @@ function adicionarAoCarrinho(idProduto) {
     return;
   }
 
-  if (!usuarioLogado) {
-    alert("Faça login para adicionar produtos ao carrinho.");
-    window.location.href = "./login.html";
-    return;
-  }
-
   const produto = produtos.find(p => p.id === idProduto);
   if (!produto) return;
 
